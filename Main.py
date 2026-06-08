@@ -1,8 +1,7 @@
 from Funciones_Integrador import *
 
-paises = []
-
 crear_archivo()
+paises = cargar_paises()
 
 while True:
     mostrar_menu()
@@ -13,7 +12,7 @@ while True:
         case "2":
             pass
         case "3":
-            pass
+            buscar_pais(paises)
         case "4":
             pass
         case "5":
