@@ -14,7 +14,7 @@ while True:
         case "3":
             buscar_pais(paises)
         case "4":
-            pass
+            filtrar_paises(paises)
         case "5":
             pass
         case "6":

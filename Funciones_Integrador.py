@@ -146,3 +146,89 @@ def buscar_pais(lista):
                     print("No se encontro coincidencias")
             case _:
                 print("Debe ingresar un numero valido")
+
+
+def mostrar_menu_filtrar():
+    print("""
+        1-Filtrar paises por continente
+        2-Filtrar paises por poblacion
+        3-Filtrar paises por superficie
+          """)
+    
+def poblacion_superficie():
+    print("""
+        1-Poblacion
+        2-Superficie
+          """)
+
+def filtrar_paises(lista):
+    if len(lista) <= 0:
+        print("Debe ingresar un pais primero")
+    else:
+        mostrar_menu_filtrar()
+        opcion = input("Ingrese una opcion ")
+        match opcion:
+            case "1":
+                mostrar_menu_continentes()
+                opcion_cont = input("Ingrese el continente ")
+                match opcion_cont:
+                    case "1":
+                        continente = "asia"
+                    case "2":
+                        continente = "america"
+                    case "3":
+                        continente = "africa"
+                    case "4":
+                        continente = "europa"
+                    case "5":
+                        continente = "oceania"
+                    case _:
+                        print("Opcion invalida")
+                        return
+                encontrado = False
+                for pais in lista:
+                    if pais["continente"] == continente:
+                        print(pais)
+                        encontrado = True
+                if not encontrado:
+                    print("No hay paises en ese continente")
+            case "2":
+                try:
+                    minimo = int(input("Ingrese la poblacion minima "))
+                    maximo = int(input("Ingrese la poblacion maxima "))
+                    if minimo > maximo:
+                        print("La poblacion minima no puede ser mayor que la maxima")
+                        return
+                    if minimo <= 0 or maximo <= 0:
+                        print("Debe ingresar numeros mayores a 0")
+                        return
+                    encontrado = False
+                    for pais in lista:
+                        if minimo <= pais["poblacion"] <= maximo:
+                            print(pais)
+                            encontrado = True
+                    if not encontrado:
+                        print("No se encontraron paises en ese rango")
+                except ValueError:
+                    print("Debe ingresar numeros enteros")
+            case "3":
+                try:
+                    minimo = int(input("Ingrese la superficie minima "))
+                    maximo = int(input("Ingrese la superficie maxima "))
+                    if minimo > maximo:
+                        print("La superficie minima no puede ser mayor que la maxima")
+                        return
+                    if minimo <= 0 or maximo <= 0:
+                        print("Debe ingresar numeros mayores a 0")
+                        return
+                    encontrado = False
+                    for pais in lista:
+                        if minimo <= pais["superficie"] <= maximo:
+                            print(pais)
+                            encontrado = True
+                    if not encontrado:
+                        print("No se encontraron paises en ese rango")
+                except ValueError:
+                    print("Debe ingresar numeros enteros")
+            case _:
+                print("Debe ingresar una opcion valida")
