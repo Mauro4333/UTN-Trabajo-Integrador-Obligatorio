@@ -16,6 +16,26 @@ def crear_archivo():
         if not os.path.exists("paises.csv"):
             with open("paises.csv", "w", newline="", encoding="utf-8") as archivo:
                 archivo.write("nombre,poblacion,superficie,continente\n")
+                archivo.write("Argentina,46735004,2780400,america\n")
+                archivo.write("Brasil,213421037,8515767,america\n")
+                archivo.write("Mexico,130861007,1964375,america\n")
+                archivo.write("Estados Unidos,340110988,9833517,america\n")
+                archivo.write("España,48300000,505990,europa\n")
+                archivo.write("Francia,68300000,551695,europa\n")
+                archivo.write("Alemania,83500000,357588,europa\n")
+                archivo.write("Italia,58900000,301340,europa\n")
+                archivo.write("China,1408975000,9562910,asia\n")
+                archivo.write("India,1450935791,3287263,asia\n")
+                archivo.write("Japon,123975371,377975,asia\n")
+                archivo.write("Arabia Saudita,34000000,2149690,asia\n")
+                archivo.write("Nigeria,232679478,923768,africa\n")
+                archivo.write("Egipto,116538258,1002450,africa\n")
+                archivo.write("Sudafrica,63000000,1221037,africa\n")
+                archivo.write("Argelia,47000000,2381741,africa\n")
+                archivo.write("Australia,27000000,7692024,oceania\n")
+                archivo.write("Nueva Zelanda,5300000,268838,oceania\n")
+                archivo.write("Papua Nueva Guinea,11000000,462840,oceania\n")
+                archivo.write("Fiyi,930000,18274,oceania\n")
     except PermissionError:
         print ("No tiene los permisos necesarios")
 
@@ -55,7 +75,7 @@ def mostrar_menu_continentes():
 
 def agregar_pais(lista):
     try:
-        pais = input("Ingrese el nombre del pais a agregar: ").capitalize()
+        pais = input("Ingrese el nombre del pais a agregar: ").strip().title()
         if pais.strip() == "":
             print("Ingrese un nombre valido")
         elif not pais.replace(" ", "").isalpha():
@@ -121,7 +141,7 @@ def buscar_pais(lista):
         match opcion:
             case "1":
                 encontrado = False
-                buscador = input("Ingrese el pais a buscar ").capitalize()
+                buscador = input("Ingrese el pais a buscar ").strip().title()
                 for pais in lista:
                     if pais["nombre"] == buscador:
                         print(f"Pais: {pais["nombre"]} Poblacion: {pais["poblacion"]} superficie: {pais["superficie"]} continente: {pais["continente"]} ")
@@ -205,7 +225,10 @@ def filtrar_paises(lista):
                     encontrado = False
                     for pais in lista:
                         if minimo <= pais["poblacion"] <= maximo:
-                            print(pais)
+                            print(f"Pais: {pais["nombre"]}"
+                            f"Poblacion: {pais["poblacion"]}"
+                            f"Superficie: {pais["superficie"]}|"
+                            f"Continente: {pais["continente"]}")
                             encontrado = True
                     if not encontrado:
                         print("No se encontraron paises en ese rango")
@@ -224,7 +247,10 @@ def filtrar_paises(lista):
                     encontrado = False
                     for pais in lista:
                         if minimo <= pais["superficie"] <= maximo:
-                            print(pais)
+                            print(f"Pais: {pais["nombre"]}"
+                            f"Poblacion: {pais["poblacion"]}"
+                            f"Superficie: {pais["superficie"]} "
+                            f"Continente: {pais["continente"]}")
                             encontrado = True
                     if not encontrado:
                         print("No se encontraron paises en ese rango")
