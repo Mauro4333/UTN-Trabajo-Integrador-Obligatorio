@@ -10,15 +10,15 @@ while True:
         case "1":
             agregar_pais(paises)
         case "2":
-            pass
+            actualizar_pais(paises)
         case "3":
             buscar_pais(paises)
         case "4":
             filtrar_paises(paises)
         case "5":
-            pass
+            ordenar_paises(paises)
         case "6":
-            pass
+            mostrar_estadisticas(paises)
         case "7":
             print("Usted esta saliendo del programa")
             break
