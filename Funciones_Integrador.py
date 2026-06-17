@@ -11,7 +11,7 @@ def mostrar_menu():
           7-Salir
           """)
 
-# CREACION Y MANEJO DEL ARCHIVO CSV  
+# CREACION Y MANEJO DEL ARCHIVO CSV Y PAISES INICIALES 
 def crear_archivo():
     try:
         if not os.path.exists("paises.csv"):
@@ -40,6 +40,7 @@ def crear_archivo():
     except PermissionError:
         print ("No tiene los permisos necesarios")
 
+#Funcion que devuelve una lista
 def cargar_paises():
     lista = []
 
@@ -259,10 +260,10 @@ def filtrar_paises(lista):
                 encontrado = False
                 for pais in lista:
                     if pais["continente"] == continente:
-                        print(f"Pais: {pais['nombre']} "
-                        f"Poblacion: {pais['poblacion']} "
-                        f"Superficie: {pais['superficie']} "
-                        f"Continente: {pais['continente']}")
+                        print(f"Pais: {pais ['nombre']} "
+                        f"Poblacion: {pais ['poblacion']} "
+                        f"Superficie: {pais ['superficie']} "
+                        f"Continente: {pais ['continente']} ")
                         encontrado = True
                 if not encontrado:
                     print("No hay paises en ese continente")
@@ -279,10 +280,10 @@ def filtrar_paises(lista):
                     encontrado = False
                     for pais in lista:
                         if minimo <= pais["poblacion"] <= maximo:
-                            print(f"Pais: {pais["nombre"]}"
-                            f"Poblacion: {pais["poblacion"]}"
-                            f"Superficie: {pais["superficie"]}|"
-                            f"Continente: {pais["continente"]}")
+                            print(f"Pais: {pais ["nombre"] } "
+                            f"Poblacion: {pais ["poblacion"] } "
+                            f"Superficie: {pais ["superficie"] } "
+                            f"Continente: {pais ["continente"] } ")
                             encontrado = True
                     if not encontrado:
                         print("No se encontraron paises en ese rango")
@@ -301,10 +302,10 @@ def filtrar_paises(lista):
                     encontrado = False
                     for pais in lista:
                         if minimo <= pais["superficie"] <= maximo:
-                            print(f"Pais: {pais["nombre"]}"
-                            f"Poblacion: {pais["poblacion"]}"
+                            print(f"Pais: {pais["nombre"]} "
+                            f"Poblacion: {pais["poblacion"]} "
                             f"Superficie: {pais["superficie"]} "
-                            f"Continente: {pais["continente"]}")
+                            f"Continente: {pais["continente"]} ")
                             encontrado = True
                     if not encontrado:
                         print("No se encontraron paises en ese rango")
