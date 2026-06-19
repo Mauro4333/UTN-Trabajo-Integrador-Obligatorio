@@ -1,6 +1,10 @@
 # UTN-Trabajo-Integrador-Obligatorio
 Trabajo integrador de Pilar y Mauro
 
+Video de Mauro:https://youtu.be/jzkkLDpO8W4
+Video de Pilar:
+
+
 Fuentes consultadas:
 America:
 Argentina: https://es.wikipedia.org/wiki/Argentina
